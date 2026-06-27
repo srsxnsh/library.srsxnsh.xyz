@@ -8,5 +8,16 @@
             }
         ]
     },
-    "research-and-reports": {}
+    "research-and-reports": {
+        "classical-reception": [
+            {
+                "name": "my-retellings-survey-2026.pdf",
+                "path": "view/research-and-reports/classical-reception/my-retellings-survey-2026.pdf"
+            },
+            {
+                "name": "my-retellings-survey-2026-written-answers.pdf",
+                "path": "view/research-and-reports/classical-reception/my-retellings-survey-2026-written-answers.pdf"
+            }
+        ]
+    }
 }

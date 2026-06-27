@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Archive</title>
+</head>
+<body>
+<h1>Archive</h1>
+<div id="tree">Loading…</div>
+<script>
+const VIEW_ROOT = './view';
+
+(async () => {
+  const tree = document.getElementById('tree');
+  let manifest = null;
+
+  try {
+    const r = await fetch('./manifest.json');
+    if (r.ok) manifest = await r.json();
+  } catch (_) {}
+
+  if (!manifest) manifest = await buildFromAutoindex(VIEW_ROOT);
+
+  if (!manifest || Object.keys(manifest).length === 0) {
+    tree.textContent = 'someting broke lmao';
+    return;
+  }
+
+  const ul = document.createElement('ul');
+  for (const cat of Object.keys(manifest).sort()) {
+    const catLi = document.createElement('li');
+    catLi.textContent = cat;
+    const subUl = document.createElement('ul');
+    for (const sub of Object.keys(manifest[cat]).sort()) {
+      const subLi = document.createElement('li');
+      subLi.textContent = sub;
+      const fileUl = document.createElement('ul');
+      for (const file of manifest[cat][sub].sort((a, b) => a.name.localeCompare(b.name))) {
+        const fileLi = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = file.path;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = file.name;
+        fileLi.appendChild(a);
+        fileUl.appendChild(fileLi);
+      }
+      subLi.appendChild(fileUl);
+      subUl.appendChild(subLi);
+    }
+    catLi.appendChild(subUl);
+    ul.appendChild(catLi);
+  }
+  tree.replaceChildren(ul);
+})();
+
+async function buildFromAutoindex(root) {
+  try {
+    const cats = await fetchJsonDir(root);
+    if (!cats) return null;
+    const manifest = {};
+    for (const cat of cats.filter(e => e.type === 'directory')) {
+      const catPath = `${root}/${cat.name}`;
+      const subs = await fetchJsonDir(catPath);
+      if (!subs) continue;
+      manifest[cat.name] = {};
+      for (const sub of subs.filter(e => e.type === 'directory')) {
+        const subPath = `${catPath}/${sub.name}`;
+        const files = await fetchJsonDir(subPath);
+        if (!files) continue;
+        manifest[cat.name][sub.name] = files
+          .filter(f => f.type === 'file')
+          .map(f => ({ name: f.name, path: `${subPath}/${f.name}` }));
+      }
+    }
+    return manifest;
+  } catch (_) { return null; }
+}
+
+async function fetchJsonDir(url) {
+  try {
+    const r = await fetch(url + '/', { headers: { Accept: 'application/json' } });
+    if (!r.ok) return null;
+    const ct = r.headers.get('content-type') || '';
+    if (!ct.includes('json')) return null;
+    const data = await r.json();
+    return Array.isArray(data) ? data : (data.files || null);
+  } catch (_) { return null; }
+}
+</script>
+</body>
+</html>

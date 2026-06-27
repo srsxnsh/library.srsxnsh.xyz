@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# generate-manifest.sh
-set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VIEW_DIR="${SCRIPT_DIR}/view"
@@ -11,56 +9,39 @@ if [[ ! -d "$VIEW_DIR" ]]; then
   exit 1
 fi
 
-echo "Scanning $VIEW_DIR …"
-#make a json like son chill i suppoose
-printf '{\n' > "$OUTPUT"
+j() { python3 -c "import json,sys; print(json.dumps(sys.argv[1]))" "$1"; }
 
+echo "Scanning $VIEW_DIR ..."
+
+out='{'
 first_cat=1
-while IFS= read -r -d '' cat_path; do
+for cat_path in "$VIEW_DIR"/*/; do
+  [[ -d "$cat_path" ]] || continue
   cat_name="$(basename "$cat_path")"
-  [[ "$first_cat" -eq 0 ]] && printf ',\n' >> "$OUTPUT"
+  [[ "$first_cat" -eq 0 ]] && out+=','
   first_cat=0
-
-  printf '  %s: {\n' "$(json_str "$cat_name")" >> "$OUTPUT"
-
+  out+="$(j "$cat_name"): {"
   first_sub=1
-  while IFS= read -r -d '' sub_path; do
+  for sub_path in "$cat_path"*/; do
+    [[ -d "$sub_path" ]] || continue
     sub_name="$(basename "$sub_path")"
-    [[ "$first_sub" -eq 0 ]] && printf ',\n' >> "$OUTPUT"
+    [[ "$first_sub" -eq 0 ]] && out+=','
     first_sub=0
-
-    printf '    %s: [\n' "$(json_str "$sub_name")" >> "$OUTPUT"
-
+    out+="$(j "$sub_name"): ["
     first_file=1
-    while IFS= read -r -d '' file_path; do
+    for file_path in "$sub_path"*; do
+      [[ -f "$file_path" ]] || continue
       file_name="$(basename "$file_path")"
-      # she u on my r till i l all over the site:wq
       rel_path="view/${cat_name}/${sub_name}/${file_name}"
-      [[ "$first_file" -eq 0 ]] && printf ',\n' >> "$OUTPUT"
+      [[ "$first_file" -eq 0 ]] && out+=','
       first_file=0
-      printf '      {"name": %s, "path": %s}' \
-        "$(json_str "$file_name")" \
-        "$(json_str "$rel_path")" >> "$OUTPUT"
-    done < <(find "$sub_path" -maxdepth 1 -type f ! -name '.*' -print0 | sort -z)
+      out+="{\"name\": $(j "$file_name"), \"path\": $(j "$rel_path")}"
+    done
+    out+=']'
+  done
+  out+='}'
+done
+out+='}'
 
-    printf '\n    ]' >> "$OUTPUT"
-  done < <(find "$cat_path" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
-
-  printf '\n  }' >> "$OUTPUT"
-done < <(find "$VIEW_DIR" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
-
-printf '\n}\n' >> "$OUTPUT"
-
+echo "$out" | python3 -m json.tool > "$OUTPUT"
 echo "Written to $OUTPUT"
-
-# ── helper ──────────────────────────────────────────────────────────────────
-json_str() {
- 
-  local s="$1"
-  s="${s//\\/\\\\}"
-  s="${s//\"/\\\"}"
-  s="${s//$'\n'/\\n}"
-  s="${s//$'\r'/\\r}"
-  s="${s//$'\t'/\\t}"
-  printf '"%s"' "$s"
-}

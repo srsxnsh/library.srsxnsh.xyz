@@ -1,7 +1,25 @@
 {
-    "essays": {},
+    "essays": {
+        "on-history": [],
+        "on-texts": [
+            {
+                "name": "weil-s-the-iliad-or-the-poem-of-force.pdf",
+                "path": "view/essays/on-texts/weil-s-the-iliad-or-the-poem-of-force.pdf"
+            }
+        ],
+        "on-translation": [
+            {
+                "name": "whitaker-r-homer-odyssey-three-ways.pdf",
+                "path": "view/essays/on-translation/whitaker-r-homer-odyssey-three-ways.pdf"
+            }
+        ]
+    },
     "greek-and-roman-texts": {
         "homer": [
+            {
+                "name": "murray-a-iliad.pdf",
+                "path": "view/greek-and-roman-texts/homer/murray-a-iliad.pdf"
+            },
             {
                 "name": "pope-a-odyssey.pdf",
                 "path": "view/greek-and-roman-texts/homer/pope-a-odyssey.pdf"

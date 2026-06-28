@@ -15,6 +15,12 @@
         ]
     },
     "greek-and-roman-texts": {
+        "apollonius-rhodius": [
+            {
+                "name": "seaton-r-argonautica.pdf",
+                "path": "view/greek-and-roman-texts/apollonius-rhodius/seaton-r-argonautica.pdf"
+            }
+        ],
         "homer": [
             {
                 "name": "murray-a-iliad.pdf",
@@ -23,6 +29,26 @@
             {
                 "name": "pope-a-odyssey.pdf",
                 "path": "view/greek-and-roman-texts/homer/pope-a-odyssey.pdf"
+            }
+        ],
+        "valerius-flaccus": [
+            {
+                "name": "latin-orphic-argonautica.pdf",
+                "path": "view/greek-and-roman-texts/valerius-flaccus/latin-orphic-argonautica.pdf"
+            }
+        ],
+        "virgil": [
+            {
+                "name": "mackail-j-georgics.pdf",
+                "path": "view/greek-and-roman-texts/virgil/mackail-j-georgics.pdf"
+            },
+            {
+                "name": "mackie-g-ecologues.pdf",
+                "path": "view/greek-and-roman-texts/virgil/mackie-g-ecologues.pdf"
+            },
+            {
+                "name": "williams-t-aeneid.pdf",
+                "path": "view/greek-and-roman-texts/virgil/williams-t-aeneid.pdf"
             }
         ]
     },

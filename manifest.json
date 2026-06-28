@@ -1,66 +1,132 @@
 {
-    "essays": {
-        "on-history": [],
-        "on-texts": [
-            {
-                "name": "weil-s-the-iliad-or-the-poem-of-force.pdf",
-                "path": "view/essays/on-texts/weil-s-the-iliad-or-the-poem-of-force.pdf"
-            }
-        ],
-        "on-translation": [
-            {
-                "name": "whitaker-r-homer-odyssey-three-ways.pdf",
-                "path": "view/essays/on-translation/whitaker-r-homer-odyssey-three-ways.pdf"
-            }
-        ]
-    },
-    "greek-and-roman-texts": {
+    "01-greek-and-roman-texts": {
         "apollonius-rhodius": [
             {
                 "name": "seaton-r-argonautica.pdf",
-                "path": "view/greek-and-roman-texts/apollonius-rhodius/seaton-r-argonautica.pdf"
+                "path": "view/01-greek-and-roman-texts/apollonius-rhodius/seaton-r-argonautica.pdf"
             }
         ],
         "homer": [
             {
                 "name": "murray-a-iliad.pdf",
-                "path": "view/greek-and-roman-texts/homer/murray-a-iliad.pdf"
+                "path": "view/01-greek-and-roman-texts/homer/murray-a-iliad.pdf"
             },
             {
                 "name": "pope-a-odyssey.pdf",
-                "path": "view/greek-and-roman-texts/homer/pope-a-odyssey.pdf"
+                "path": "view/01-greek-and-roman-texts/homer/pope-a-odyssey.pdf"
             }
         ],
         "valerius-flaccus": [
             {
                 "name": "latin-orphic-argonautica.pdf",
-                "path": "view/greek-and-roman-texts/valerius-flaccus/latin-orphic-argonautica.pdf"
+                "path": "view/01-greek-and-roman-texts/valerius-flaccus/latin-orphic-argonautica.pdf"
             }
         ],
         "virgil": [
             {
                 "name": "mackail-j-georgics.pdf",
-                "path": "view/greek-and-roman-texts/virgil/mackail-j-georgics.pdf"
+                "path": "view/01-greek-and-roman-texts/virgil/mackail-j-georgics.pdf"
             },
             {
                 "name": "mackie-g-ecologues.pdf",
-                "path": "view/greek-and-roman-texts/virgil/mackie-g-ecologues.pdf"
+                "path": "view/01-greek-and-roman-texts/virgil/mackie-g-ecologues.pdf"
             },
             {
                 "name": "williams-t-aeneid.pdf",
-                "path": "view/greek-and-roman-texts/virgil/williams-t-aeneid.pdf"
+                "path": "view/01-greek-and-roman-texts/virgil/williams-t-aeneid.pdf"
             }
         ]
     },
-    "research-and-reports": {
+    "02-essays": {
+        "on-history": [],
+        "on-texts": [
+            {
+                "name": "na-sicily-and-italy-in-odyssey.pdf",
+                "path": "view/02-essays/on-texts/na-sicily-and-italy-in-odyssey.pdf"
+            },
+            {
+                "name": "weil-s-the-iliad-or-the-poem-of-force.pdf",
+                "path": "view/02-essays/on-texts/weil-s-the-iliad-or-the-poem-of-force.pdf"
+            }
+        ],
+        "on-translation": [
+            {
+                "name": "whitaker-r-homer-odyssey-three-ways.pdf",
+                "path": "view/02-essays/on-translation/whitaker-r-homer-odyssey-three-ways.pdf"
+            }
+        ]
+    },
+    "03-research-and-reports": {
+        "archaeology": [
+            {
+                "name": "apaydin-v-oxford-handbook-ancient-anatolia-review.pdf",
+                "path": "view/03-research-and-reports/archaeology/apaydin-v-oxford-handbook-ancient-anatolia-review.pdf"
+            }
+        ],
+        "classical-culture": [
+            {
+                "name": "lampinen-a-thrace-marking-the-north.pdf",
+                "path": "view/03-research-and-reports/classical-culture/lampinen-a-thrace-marking-the-north.pdf"
+            },
+            {
+                "name": "nosch-m-l-textiles.pdf",
+                "path": "view/03-research-and-reports/classical-culture/nosch-m-l-textiles.pdf"
+            }
+        ],
         "classical-reception": [
             {
                 "name": "my-retellings-survey-2026.pdf",
-                "path": "view/research-and-reports/classical-reception/my-retellings-survey-2026.pdf"
+                "path": "view/03-research-and-reports/classical-reception/my-retellings-survey-2026.pdf"
             },
             {
                 "name": "my-retellings-survey-2026-written-answers.pdf",
-                "path": "view/research-and-reports/classical-reception/my-retellings-survey-2026-written-answers.pdf"
+                "path": "view/03-research-and-reports/classical-reception/my-retellings-survey-2026-written-answers.pdf"
+            }
+        ],
+        "ecology": [
+            {
+                "name": "bioscience-marine-ecoregions-of-the-world.pdf",
+                "path": "view/03-research-and-reports/ecology/bioscience-marine-ecoregions-of-the-world.pdf"
+            },
+            {
+                "name": "edinburgh-journal-of-botany-atlas-of-aegean-flora.pdf",
+                "path": "view/03-research-and-reports/ecology/edinburgh-journal-of-botany-atlas-of-aegean-flora.pdf"
+            },
+            {
+                "name": "journal-of-ethnobiology-quest-for-homers-moly.pdf",
+                "path": "view/03-research-and-reports/ecology/journal-of-ethnobiology-quest-for-homers-moly.pdf"
+            },
+            {
+                "name": "journal-of-maps-geomorphology-of-greece.pdf",
+                "path": "view/03-research-and-reports/ecology/journal-of-maps-geomorphology-of-greece.pdf"
+            },
+            {
+                "name": "ocean-science-climate-change-in-mediterranean-sea.pdf",
+                "path": "view/03-research-and-reports/ecology/ocean-science-climate-change-in-mediterranean-sea.pdf"
+            },
+            {
+                "name": "remote-sensing-cyprus-seagrass.pdf",
+                "path": "view/03-research-and-reports/ecology/remote-sensing-cyprus-seagrass.pdf"
+            }
+        ],
+        "language-and-philology": [
+            {
+                "name": "palaima-tg-oxford-linear-a-and-b.pdf",
+                "path": "view/03-research-and-reports/language-and-philology/palaima-tg-oxford-linear-a-and-b.pdf"
+            }
+        ],
+        "material-sciences": [
+            {
+                "name": "gems-and-gemology-pearl-classification.pdf",
+                "path": "view/03-research-and-reports/material-sciences/gems-and-gemology-pearl-classification.pdf"
+            }
+        ]
+    },
+    "99-extras": {
+        "classical": [
+            {
+                "name": "sumerian-renaissance-cake.pdf",
+                "path": "view/99-extras/classical/sumerian-renaissance-cake.pdf"
             }
         ]
     }
